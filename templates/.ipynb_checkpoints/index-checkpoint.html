@@ -1,0 +1,19 @@
+<!-- templates/index.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>YOLOv8 Dog Detector</title>
+</head>
+<body>
+    <h2>Upload an image to detect dogs 🐶</h2>
+    <form action="/detect" method="POST" enctype="multipart/form-data">
+        <input type="file" name="image" accept="image/*" required>
+        <input type="submit" value="Detect">
+    </form>
+
+    {% if result %}
+        <h3>Result:</h3>
+        <img src="{{ url_for('static', filename='output.jpg') }}" alt="Result Image" width="500">
+    {% endif %}
+</body>
+</html>
